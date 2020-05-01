@@ -2,11 +2,11 @@ package com.codecademy.project;
 
 class Noodle {
 
-    double lengthInCentimeters;
-    double widthInCentimeters;
-    String shape;
-    String ingredients;
-    String texture = "brittle";
+    protected double lengthInCentimeters;
+    protected double widthInCentimeters;
+    protected String shape;
+    protected String ingredients;
+    protected String texture = "brittle";
 
     Noodle(double lenInCent, double wthInCent, String shp, String ingr) {
 
@@ -17,16 +17,27 @@ class Noodle {
 
     }
 
-    public void cook() {
+    public String getCookPrep() {
 
-        this.texture = "cooked";
+        return "Boil noodle for 7 minutes and add sauce.";
 
     }
 
-    public static void main(String[] args) {
-        Pho phoChay = new Pho();
-        System.out.println(phoChay.shape);
 
+    public static void main(String[] args) {
+
+        Noodle spaghetti, ramen, pho;
+
+        spaghetti = new Spaghetti();
+        ramen = new Ramen();
+        pho = new Pho();
+
+        // Add your code below:
+        Noodle[] allTheNoodles = {spaghetti, ramen, pho};
+
+        for (Noodle noodle: allTheNoodles) {
+            System.out.println(noodle.getCookPrep());
+        }
     }
 
 }
